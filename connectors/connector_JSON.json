@@ -1,0 +1,18 @@
+{
+  "name": "jdbc-source", 
+  "config": { 
+	  "topic": "rbac-test",
+	  "kafka.topic": "rbac-test",
+	  "tasks.max": "1",
+          "connector.class": "io.confluent.kafka.connect.datagen.DatagenConnector", 
+	  "connection.loginTimeout": "10", 
+	  "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+	  "key.converter.schemas.enable": "false",
+	  "value.converter": "org.apache.kafka.connect.storage.StringConverter",
+	  "value.converter.schemas.enable": "false",
+	  "value.converter.basic.auth.credentials.source": "USER_INFO",
+	  "value.converter.basic.auth.user.info": "consumer:consumer",
+	  "max.interval": 100,
+	  "sasl.jaas.config": "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required username=\"consumer\" password=\"consumer\" metadataServerUrls=\"http://localhost:8090\";"
+  }
+}
